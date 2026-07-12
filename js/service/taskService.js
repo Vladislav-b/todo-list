@@ -58,7 +58,7 @@ export function initTaskService() {
 	}
 
 	const onDeleteTaskButtonClick = ({ target }) => {
-		if (target.closest('.item__delete-button')) {
+		if (target.closest('.item__button--delete')) {
 			const itemElement = target.closest('[data-js-todo-item]')
 			const itemCheckboxElement = itemElement.querySelector('[data-js-todo-item-checkbox]')
 

@@ -25,7 +25,7 @@ export function initModal() {
 		if (target === openCreateModalButton) {
 			titleElement.textContent = 'new task'
 			applyButton.textContent = 'apply'
-		} else if (target.closest('.item__rename-button')) {
+		} else if (target.closest('.item__button--rename')) {
 			titleElement.textContent = 'edit task'
 			applyButton.textContent = 'save'
 
