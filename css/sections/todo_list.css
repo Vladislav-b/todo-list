@@ -1,0 +1,145 @@
+.todo__list {
+	padding: 13px 115px;
+}
+
+.list__item {
+	padding-block: 17px;
+	display: flex;
+	align-items: center;
+	gap: 17px;
+	transition-duration: calc(var(--transition-duration) * 2);
+}
+
+.list__item.is-disappearing {
+	translate: 0 -100%;
+	opacity: 0;
+
+	& ~ .list__item {
+		transform: translateY(-100%);
+	}
+}
+
+.list__item:not(:first-child) {
+	border-top: 1px solid #6C63FF50;
+}
+
+.item__checkbox {
+	flex-shrink: 0;
+	appearance: none;
+	position: relative;
+	border: var(--border-purple);
+	border-radius: 2px;
+	width: 26px;
+	height: 26px;
+	margin: 0;
+	transition-duration: var(--transition-duration);
+
+	&:active {
+		scale: 0.9;
+	}
+
+	&:not(:checked) {
+		&::after {
+			opacity: 0;
+		}
+	}
+
+	&:checked {
+		background-color: var(--color-purple);
+
+		& + .item__label {
+			color: #25252550;
+			text-decoration: line-through;
+		}
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 15px;
+		height: 15px;
+		translate: -50% -50%;
+		background: url('../../icons/icon-check-mark-white.svg') center/contain no-repeat;
+	}
+}
+
+.item__label {
+	color: var(--color-black);
+	font-size: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.item__actions {
+	margin-left: auto;
+	display: flex;
+	gap: 10px;
+}
+
+.item__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	transition-duration: var(--transition-duration);
+}
+
+.item__button:active {
+	scale: 0.9;
+}
+
+.item__button--rename:hover path {
+	stroke: var(--color-purple);
+}
+
+
+.item__button--delete:hover path {
+	stroke: #E50000;
+}
+
+.list__item.is-expanded {
+	align-items: start;
+
+	& .item__label {
+		overflow: visible;
+		text-overflow: unset;
+		white-space: normal;
+	}
+}
+
+body.dark {
+	.item__checkbox {
+		&:checked {
+			& + .item__label {
+				color: #FFFFFF50;
+			}
+		}
+	}
+
+	& .item__label {
+		color: var(--color-white);
+	}
+}
+
+@media (max-width: 1024px) {
+	.todo__list {
+		padding: 13px 70px;
+	}
+}
+
+@media (max-width: 768px) {
+	.todo__list {
+		padding: 13px 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.todo__list {
+		padding: 13px 10px;
+	}
+}

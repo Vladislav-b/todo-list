@@ -1,0 +1,65 @@
+.todo {
+	width: 100%;
+	min-height: 100vh;
+	padding: 40px 0 0 0;
+}
+
+.todo__title {
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 18px;
+	color: var(--color-black);
+}
+
+.todo__form {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+}
+
+.todo__add-task {
+	position: fixed;
+	bottom: 32px;
+	width: 50px;
+	height: 50px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: var(--color-purple);
+	border: 2px solid var(--color-purple);
+	border-radius: 50%;
+}
+
+body.dark .todo__title {
+	color: var(--color-white);
+}
+
+@media (max-width: 1920px) {
+	.todo__add-task {
+		right: calc(8px + 325px);
+	}
+}
+
+@media (max-width: 1200px) {
+	.todo__add-task {
+		right: calc(8px + 250px);
+	}
+}
+
+@media (max-width: 1024px) {
+	.todo__add-task {
+		right: calc(8px + 100px);
+	}
+}
+
+@media (max-width: 768px) {
+	.todo__add-task {
+		right: calc(8px + 50px);
+	}
+}
+
+@media (max-width: 480px) {
+	.todo__add-task {
+		right: calc(8px + 10px);
+	}
+}

@@ -1,0 +1,19 @@
+:root {
+	--color-purple: #6C63FF;
+	--color-dark-purple: #534CC2;
+	--color-white: #F7F7F7;
+	--color-black: #252525;
+
+	--background-color: #F7F7F7;
+	--border-purple: 1px solid var(--color-purple);
+
+	--border-radius: 5px;
+
+	--input-height: 38px;
+
+	--transition-duration: 0.2s;
+}
+
+body.dark {
+	--background-color: var(--color-black);
+}

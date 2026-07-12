@@ -1,0 +1,29 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+select,
+button {
+  font-family: inherit;
+}
+
+h1,
+p {
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding-left: 0;
+	list-style: none;
+}

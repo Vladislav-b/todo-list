@@ -1,0 +1,17 @@
+.button {
+	cursor: pointer;
+	transition-duration: var(--transition-duration);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--border-radius);
+}
+
+.button:is(:hover, :active) {
+	background-color: var(--color-dark-purple);
+	box-shadow: 0px 0px 4px 0px var(--color-purple);
+}
+
+.button:active {
+	scale: 0.9;
+}

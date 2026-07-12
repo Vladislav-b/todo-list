@@ -1,0 +1,39 @@
+body {
+	min-height: 100vh;
+	background-color: var(--background-color);
+	font-family: "Kanit", sans-serif;
+}
+
+.container {
+	max-width: 750px;
+}
+
+@media (max-width: 1920px) {
+	.container {
+		margin: 40px auto 0 auto;
+	}
+}
+
+@media (max-width: 1200px) {
+	.container {
+		margin: 30px 250px 0 250px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		margin: 20px 100px 0 100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		margin: 20px 50px 0 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		margin: 10px 10px 0 10px;
+	}
+}

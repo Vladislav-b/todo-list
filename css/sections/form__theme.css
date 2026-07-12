@@ -1,0 +1,19 @@
+.form__theme {
+	width: 38px;
+	height: 38px;
+	background-color: var(--color-purple);
+	border: none;
+	padding: 8px;
+}
+
+.form__theme-icon {
+	display: none;
+}
+
+body.dark .theme-icon-sun {
+	display: block;
+}
+
+body:not(.dark) .theme-icon-moon {
+	display: block;
+}

@@ -1,0 +1,27 @@
+.todo__empty-message {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+.todo__empty-message.is-active {
+	display: flex;
+}
+
+.empty-message__img {
+	margin-bottom: 20px;
+}
+
+.empty-message__text {
+	color: var(--color-black);
+	font-size: 20px;
+	font-weight: 400;
+}
+
+body.dark {
+	& .empty-message__text {
+		color: var(--color-white);
+	}
+}
