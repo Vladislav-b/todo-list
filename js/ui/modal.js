@@ -22,7 +22,7 @@ export function initModal() {
 	}
 
 	const onOpenModalClick = ({ target }) => {
-		if (target === openCreateModalButton) {
+		if (target.closest('[data-js-add-task-button]')) {
 			titleElement.textContent = 'new task'
 			applyButton.textContent = 'apply'
 		} else if (target.closest('.item__button--rename')) {
