@@ -4,24 +4,38 @@ const listElement = document.querySelector('[data-js-todo-list]')
 const emptyMessageElement = document.querySelector('[data-js-todo-empty-message]')
 
 const getVisibleTasks = () => {
-	return state.items.filter(task => 
-		task.title 
-			.toLowerCase()
-			.includes(state.searchQuery.toLowerCase())
-	)	
-}
-
-export function render() {
-	const tasksToRender = getVisibleTasks()
-
-	let items = tasksToRender
+	const searchQuery = state.searchQuery
+	let items = searchQuery.length > 0 
+		? state.items.filter((task) => task.title.toLowerCase().includes(searchQuery))
+		: state.items
+		
 	if (state.selectValue === 'complete') {
 		items = items.filter((item) => item.isChecked)
 	} else if (state.selectValue === 'incomplete') {
 		items = items.filter((item) => !item.isChecked)
 	}
 
-	listElement.innerHTML = items.map(({ id, title, isChecked }) => `
+	return items
+}
+export function render() {
+	const hasTasks = state.items.length > 0
+	const visibleTasks = getVisibleTasks()
+
+	if (!hasTasks) {
+		emptyMessageElement.innerHTML = `
+			<img class="empty-message__img" src="images/detective-check-footprint.svg" alt="detective check footprint">
+			<p class="empty-message__text">There are no tasks yet</p>`
+		emptyMessageElement.classList.add('is-active')
+	} else if (hasTasks && visibleTasks.length === 0) {
+		emptyMessageElement.classList.add('is-active')
+		emptyMessageElement.innerHTML = `
+			<img class="empty-message__img" src="images/detective-check-footprint.svg" alt="detective check footprint">
+			<p class="empty-message__text">Tasks not found</p>`
+	} else {
+		emptyMessageElement.classList.remove('is-active')
+	}
+
+	listElement.innerHTML = visibleTasks.map(({ id, title, isChecked }) => `
 		<li class="list__item" data-js-todo-item>
 			<input id="${id}" type="checkbox" ${isChecked ? 'checked' : ''} class="item__checkbox" data-js-todo-item-checkbox>
 
@@ -49,10 +63,4 @@ export function render() {
 			</div> 
 		</li>
 	`).join('')
-
-	if (items.length === 0) {
-		emptyMessageElement.classList.add('is-active')
-	} else {
-		emptyMessageElement.classList.remove('is-active')
-	}
 }

@@ -12,7 +12,7 @@ export function initSearch() {
 		const value = target.value.trim()
 
 		if (value.length > 0) {
-			state.searchQuery = value
+			state.searchQuery = value.toLowerCase()
 			render()
 		} else {
 			clearSearch()
