@@ -3,7 +3,7 @@ import { createTask, renameTask } from "../service/taskService.js"
 export function initModal() {
 	const listElement = document.querySelector('[data-js-todo-list]')
 	const openCreateModalButton = document.querySelector('[data-js-add-task-button]')
-	const modalElement = document.querySelector('[data-js-todo-modal]')	
+	const modalElement = document.querySelector('[data-js-todo-modal]')
 	const titleElement = modalElement.querySelector('[data-js-todo-modal-title]')
 	const applyButton = modalElement.querySelector('[data-js-todo-modal-apply]')
 	const cancelButton = modalElement.querySelector('[data-js-todo-modal-cancel]')
@@ -40,6 +40,7 @@ export function initModal() {
 		}
 
 		openModal()
+		inputElement.focus()
 	}
 
 	const onModalCloseClick  = ({ target }) => {
@@ -48,7 +49,7 @@ export function initModal() {
 		}
 	}
 
-	const onSubmit = () => {
+	const Submit = () => {
 		const title = inputElement.value.trim()
 
 		if (!title) {
@@ -68,7 +69,14 @@ export function initModal() {
 		openCreateModalButton.addEventListener('click', onOpenModalClick)
 		listElement.addEventListener('click', onOpenModalClick)
 		modalElement.addEventListener('click', onModalCloseClick )
-		applyButton.addEventListener('click', onSubmit)
+		applyButton.addEventListener('click',Submit)
+		inputElement.addEventListener('keypress', (e) => {
+			if (e.key !== 'Enter') {
+				return
+			} else {
+				Submit()
+			}
+		})
 	}
 
 	bindEvents()
